@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>vs03</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+   <main>
+    <div id="part1">
+      <div id="p1-nav">
+        <h1>vsproj</h1>
+        <i id="file-icon" class="ri-file-line"></i>
+        <i id="folder-icon" class="ri-folder-line"></i>
+       <a href="/"> <i class="ri-restart-line"></i></a>
+      </div>
+      <form id="fileform" action="/createfile"> <input type="text" name="filename" placeholder="filename"></form>
+      <form id="folderform" action="/createfolder"> <input type="text" name="foldername" placeholder="foldername"></form>
+      <%files.forEach(function(file){ %>
+    
+       <%  if(file.isFolder===true){ %>
+      <div class="div">
+        <h3> <i class="ri-folder-line"></i><%= file.filename %></h3>
+        <div id="icon">
+         <a href="/rename/<%= file.filename %>"><i class="ri-edit-line"></i></a> 
+          <a href="/deletefolder/<%=file.filename %>"><i class="ri-delete-bin-7-line"></i></a>
+        </div>
+      </div>
+      <% }else{ %>
+        <div class="div">
+          <a href="/write/<%= file.filename %>"><h3> <i class="ri-file-line"></i><%= file.filename %></h3></a>
+          <div id="icon">
+            <a href="/rename/<%= file.filename %>"><i class="ri-edit-line"></i></a> 
+             <a href="/deletefile/<%=file.filename %>"><i class="ri-delete-bin-7-line"></i></a>
+           </div>
+        </div>
+     <% } %>
+  <%  }) %>
+    </div>
+    <div id="part2">
+      <div id="p2-nav">
+       
+      </div>
+      <div id="box">
+      <h2>nothing here.</h2>
+
+      </div>
+    </div>
+   </main>
+   <script>
+
+        
+
+
+            function off(){
+              document.querySelector("#fileform").style.display = 'none';
+              document.querySelector("#folderform").style.display = 'none';
+
+            }
+
+    document.querySelector("#file-icon").addEventListener("click",function(){
+      off();
+      document.querySelector("#fileform").style.display = 'initial';
+    })
+    document.querySelector("#folder-icon").addEventListener("click",function(){
+      off();
+      document.querySelector("#folderform").style.display = 'initial';
+    })
+   </script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+*{
+margin: 0%;
+padding: 0%;
+box-sizing: border-box;
+font-family: gilroy;
+font-weight: 100;
+}
+html,body{
+height: 100%;
+width: 100%;
+}
+main{
+  display: flex;
+width:100%;
+height: 100vh;
+overflow: hidden;
+}
+#part1{
+  height: 100%;
+  width: 25%;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+#p1-nav{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+  height: 10vh;
+  width: 100%;
+  
+} 
+#part1 form{
+  width: 100%;
+  height: 5vh;
+  display: none;
+}
+#part1 form input{
+  width: 100%;
+  height: 5vh;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #dadada;
+  padding: 0 15px;
+ 
+}
+#part1 .div{
+  height: 7vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0px 50px;
+ background-color: #dadada;
+ border-bottom: 1px solid #aaaa;
+}
+#part1 .div i{
+  font-size: 22px;
+}
+#p1-nav i{
+  font-size: 22px;
+}
+#icon{
+  display: flex;
+  gap: 30px;
+}
+#part2{
+  position: relative;
+  height: 100%;
+  width: 75%;
+}
+#p2-nav{
+  height: 10vh;
+  width: 100%;
+ 
+}
+#p2-nav #div{
+  height: 100%;
+  width: fit-content;
+  padding: 0px 10px ;
+  display: flex;
+  align-items: center;
+ background-color: #dadada;
+  gap: 15px;
+}
+#p2-nav #div i{
+  font-size: 23px;
+}
+textarea{
+
+  width: 100%;
+ 
+  height: 90vh;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  padding: 20px 30px;
+}
+button{
+  position: absolute;
+  right: 1%;
+  top: 10%;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  background-color: rgba(0, 0, 255, 0.728);
+  color: #fff;
+}
+#box{
+  height: 90vh;
+  width: 100%;
+  background-color: #aaaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#box h2{
+  color: #494747;
+}
