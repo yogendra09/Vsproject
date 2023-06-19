@@ -52,7 +52,16 @@ router.post('/write/:filename', function(req, res, next) {
 });
 
 router.get('/rename/:filename',function(req,res,next){
-    res.render("rename",{filename:req.params.filename});
+  var filesarr=[];
+  fs.readdir("./uploads",{withFileTypes:true},function(err,files){
+  
+    files.forEach(function(file){
+       filesarr.push({filename:file.name,isFolder:file.isDirectory()})
+    })
+    console.log(filesarr);
+    res.render("rename",{files:filesarr,filename:req.params.filename})
+  })
+   
 })
 
 router.post('/rename/:filename', function(req, res, next) {

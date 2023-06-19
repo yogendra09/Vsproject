@@ -1,12 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="/rename/<%= filename %>" method="post"><input type="text" name="newname" value="<%= filename %>"><button type="submit">save</button></form>
-</body>
+<html>
+  <head>
+    <title>vs03</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+   <main>
+    <div id="part1">
+      <div id="p1-nav">
+        <h1>vsproj</h1>
+        <i id="file-icon" class="ri-file-line"></i>
+        <i id="folder-icon" class="ri-folder-line"></i>
+       <a href="/"> <i class="ri-restart-line"></i></a>
+      </div>
+      <form id="fileform" action="/createfile"> <input type="text" name="filename" placeholder="filename"></form>
+      <form id="folderform" action="/createfolder"> <input type="text" name="foldername" placeholder="foldername"></form>
+      <%files.forEach(function(file){ %>
+    
+       <%  if(file.isFolder===true){ %>
+      <div class="div">
+        <h3> <i class="ri-folder-line"></i><%= file.filename %></h3>
+        <div id="icon">
+         <a href="/rename/<%= file.filename %>"><i class="ri-edit-line"></i></a> 
+          <a href="/deletefolder/<%=file.filename %>"><i class="ri-delete-bin-7-line"></i></a>
+        </div>
+      </div>
+      <% }else{ %>
+        <div class="div" style="gap: 20px;">
+            <form style="display: contents;" action="/rename/<%= filename %>" method="post"><input type="text" name="newname" value="<%= filename %>"><button type="submit">save</button></form>
+            <div id="icon">
+            <a href="/rename/<%= file.filename %>"><i class="ri-edit-line"></i></a> 
+             <a href="/deletefile/<%=file.filename %>"><i class="ri-delete-bin-7-line"></i></a>
+           </div>
+        </div>
+     <% } %>
+  <%  }) %>
+    </div>
+    <div id="part2">
+      <div id="p2-nav">
+       
+      </div>
+      <div id="box">
+      <h2>nothing here.</h2>
+
+      </div>
+    </div>
+   </main>
+   <script>
+
+        
+
+
+            function off(){
+              document.querySelector("#fileform").style.display = 'none';
+              document.querySelector("#folderform").style.display = 'none';
+
+            }
+
+    document.querySelector("#file-icon").addEventListener("click",function(){
+      off();
+      document.querySelector("#fileform").style.display = 'initial';
+    })
+    document.querySelector("#folder-icon").addEventListener("click",function(){
+      off();
+      document.querySelector("#folderform").style.display = 'initial';
+    })
+   </script>
+  </body>
 </html>
